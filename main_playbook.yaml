@@ -1,6 +1,6 @@
 ---
 - name: "Testing ansible interaction with windows - basic auth method"
-  hosts: all
+  hosts: basic
   gather_facts: true
   tasks:
     - name: "Check windows machine access using win_ping"
@@ -17,13 +17,27 @@
 
     - debug: var=whoami_out.stdout
 
-    - name: "Create a file - if not present, updates if present"
+    - name: "Create an empty"
       win_file:
-        path: C:\Scripts\hello.ps1
+        path: C:\Scripts\hello_v2.ps1
+        state: touch
+
+    - name: "Copy content inside an empty file"
+      win_copy:
+        dest: C:\Scripts\hello_v2.ps1
+        content: |
+          Write-Host "Hello, World!"
+          Write-Host "Hello, Monica!"
         state: touch
 
     - name: "Run a powershell script"
       win_shell: C:\Scripts\hello.ps1
+      register: hello_out
+
+    - debug: var=hello_out.stdout
+
+    - name: "Run a powershell script"
+      win_shell: C:\Scripts\hello_v2.ps1
       register: hello_out
 
     - debug: var=hello_out.stdout

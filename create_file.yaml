@@ -9,6 +9,7 @@
     - name: "Create a file - if not present, updates if present"
       win_file:
         path: C:\Scripts\hello.ps1
+        content: Write-Host "Hello, World!"
         state: touch
 
     - name: "Run a powershell script"
