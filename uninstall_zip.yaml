@@ -1,0 +1,14 @@
+---
+- name: "Testing ansible interaction with windows - basic auth method"
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: "Check windows machine access using win_ping"
+      win_ping:
+
+    - name: "Uninstall 7zip from the exe"
+      win_package:
+        path: C:\Program Files\7-Zip\Uninstall.exe
+        product_id: 7-Zip
+        arguments: /S 
+        state: absent

@@ -1,0 +1,14 @@
+---
+- name: "Testing ansible interaction with windows - basic auth method"
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: "Check windows machine access using win_ping"
+      win_ping:
+
+    - name: "Create a new user on windows machine"
+      win_user: 
+        name: ana
+        password: mypassword
+        state: present
+        groups: Users

@@ -1,0 +1,13 @@
+---
+- name: "Testing ansible interaction with windows - basic auth method"
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: "Check windows machine access using win_ping"
+      win_ping:
+    
+    - name: "Install 7zip from the exe"
+      win_package:
+        path: C:\Users\{{ windows_user }}\Downloads\7z1900-x64.exe
+        arguments: /S (the /S means Silent installation?)
+        state: present

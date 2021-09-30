@@ -1,0 +1,8 @@
+[basic]
+192.168.208.1
+
+[virtual_windows]
+192.168.1.15
+
+[aws_windows]
+54.78.188.250
