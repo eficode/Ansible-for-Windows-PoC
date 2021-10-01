@@ -5,39 +5,17 @@
   tasks:
     - name: "Check windows machine access using win_ping"
       win_ping:
+      
+    - name: "Download git-client"
+      win_get_url:
+        url: 'https://github.com/git-for-windows/git/releases/download/v2.33.0.windows.2/Git-2.33.0.2-64-bit.exe'
+        dest: 'C:\Windows\Temp\Git-1.9.5-preview20150319.exe'
 
-    - name: "Create directory structure"
-      win_file:
-        path: C:\Scripts
-        state: directory
+    - name: "Install git-client"
+      win_package:
+        path: C:\Windows\Temp\Git-1.9.5-preview20150319.exe
+        arguments: /SILENT
+        product_id: Git_is1
+        state: present
 
-    - name: "Save te result of 'whoami' in whoami_out"
-      win_command: whoami
-      register: whoami_out
 
-    - debug: var=whoami_out.stdout
-
-    - name: "Create an empty"
-      win_file:
-        path: C:\Scripts\hello_v2.ps1
-        state: touch
-
-    - name: "Copy content inside an empty file"
-      win_copy:
-        dest: C:\Scripts\hello_v2.ps1
-        content: |
-          Write-Host "Hello, World!"
-          Write-Host "Hello, Monica!"
-        state: touch
-
-    - name: "Run a powershell script"
-      win_shell: C:\Scripts\hello.ps1
-      register: hello_out
-
-    - debug: var=hello_out.stdout
-
-    - name: "Run a powershell script"
-      win_shell: C:\Scripts\hello_v2.ps1
-      register: hello_out
-
-    - debug: var=hello_out.stdout

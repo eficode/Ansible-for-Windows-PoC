@@ -9,4 +9,4 @@ ansible_winrm_server_cert_validation: ignore
 windows_user: Administrator
 
 # sensitive data
-ansible_password: "{{ vault_ansible_password }}"
+ansible_password: "{{ vault_windows_password }}"
