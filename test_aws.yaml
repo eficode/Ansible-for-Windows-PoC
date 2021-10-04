@@ -1,0 +1,4 @@
+---
+- hosts: aws_windows
+  tasks:
+    - debug: msg="Success connection!"
