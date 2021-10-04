@@ -1,0 +1,17 @@
+---
+- hosts: aws_windows
+  tasks:    
+    - name: Install chocolatey
+      win_chocolatey:
+        name: chocolatey
+        source: https://community.chocolatey.org/install.ps1
+
+    - name: Upgrade installed packages
+      win_chocolatey:
+        name: all
+        state: latest
+
+    - name: Install notepadplusplus with chocolatey
+      win_chocolatey:
+        name: notepadplusplus
+        state: latest
