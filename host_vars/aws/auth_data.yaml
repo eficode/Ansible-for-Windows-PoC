@@ -1,5 +1,4 @@
 ---
-#vault_windows_password: "S9tp2OWN))OrlentXqDa9E6PfipAs2On"
 vault_windows_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           37666565306563656464393863306466383661393132303662636230383832373533333666613433

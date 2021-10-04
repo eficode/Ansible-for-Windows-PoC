@@ -1,6 +1,6 @@
 ---
 - name: "Testing ansible interaction with windows - basic auth method"
-  hosts: aws_windows
+  hosts: own_windows
   gather_facts: true
   tasks:
     - name: "Check windows machine access using win_ping"

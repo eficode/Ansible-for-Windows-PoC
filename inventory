@@ -1,12 +1,8 @@
 [own_windows]
-172.26.80.1
+172.18.80.1
 
 [virtual_windows]
 192.168.1.15
 
 [aws_windows]
-aws1 ansible_host=34.243.101.222
-aws2 ansible_host=34.247.155.243
-aws3 ansible_host=3.250.11.57
-aws4 ansible_host=34.244.234.190
-aws5 ansible_host=63.33.190.101
+aws ansible_host=
