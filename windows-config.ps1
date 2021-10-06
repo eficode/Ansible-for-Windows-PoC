@@ -6,4 +6,6 @@ powershell.exe -ExecutionPolicy ByPass -File $file
 
 winrm quickconfig
 
+Set-Item -Force WSMan:\localhost\Client\Allowunencrypted $True
+Set-Item -Force WSMan:\localhost\Service\Allowunencrypted $True
 Set-Item -Path WSMan:\localhost\Service\Auth\Basic -Value $true

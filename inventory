@@ -5,4 +5,4 @@
 192.168.1.15
 
 [aws_windows]
-aws ansible_host=3.250.78.160
+aws ansible_host=34.251.237.251
