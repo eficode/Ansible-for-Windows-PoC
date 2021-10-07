@@ -3,7 +3,7 @@
 ansible_user: moni_sds@hotmail.com
 ansible_port: 5986
 ansible_connection: winrm
-ansible_winrm_transport: basic
+ansible_winrm_transport: credssp
 ansible_winrm_server_cert_validation: ignore
 
 windows_user: moni_
