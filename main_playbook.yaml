@@ -1,5 +1,5 @@
 ---
-- name: "Testing ansible interaction with windows - basic auth method"
+- name: "Testing ansible interaction with windows"
   hosts: own_windows
   gather_facts: true
   tasks:
