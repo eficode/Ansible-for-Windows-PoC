@@ -3,9 +3,10 @@
 ansible_user: moni_sds@hotmail.com
 ansible_port: 5986
 ansible_connection: winrm
-ansible_winrm_transport: credssp
+ansible_winrm_transport: basic
 ansible_winrm_server_cert_validation: ignore
 
+# variable used to assert the path to install a .exe saved in the host
 windows_user: moni_
 
 # sensitive data
