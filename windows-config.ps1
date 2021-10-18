@@ -9,7 +9,7 @@ powershell.exe -ExecutionPolicy ByPass -File $file
 winrm quickconfig
 winrm quickconfig -transport:https
 
-#View current listeners that ate running on the WinRM service
+#View current listeners that are running on the WinRM service
 winrm enumerate winrm/config/Listener
 
 #Get the output of the current service configuration options
