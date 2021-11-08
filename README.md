@@ -26,3 +26,13 @@ Open the group_vars/own_windows directory and replace `ansible_user` and `ansibl
 
 If the setup was successful the playbook will authenticate into the host, download and install Git in the windows machine.
 
+## PoC Considerations
+
+Unlike Linux/Unix hosts that use SSH by default, Windows hosts use WinRM with Ansible. WinRM is a management protocol used by Windows to remotely communicate with another server over HTTP/HTTPS. Since 2012 WinRM is enabled by default on a Windows machine, however it requires extra configuration to use with Ansible. After having the host configuration ready some options are given for connecting to a Windows host. Basic authentication is the simplest one, the security can be improved by using HTTPS as channel, and enabling this option is part of the initial script used to get the host ready for Ansible. No problems were found in using this method out-of-the-box in standard Windows machines.
+
+Another authentication option is CredSSP, which is a protocol that allows credential delegation. The username and password are encrypted after successfully authenticating and sent to the server. This protocol supports message encryption over HTTP. CredSSP is not enabled by default but can be enabled by running a PowerShell command in the host. Similarly to the previous attempt, no problems were found in using this method out-of-the-box in standard Windows machines.
+
+During the tests in the Entreprise IT managed computers we ran into two main challenges when trying to connect with the WinRM:
+1. Due to in-place group security policies we could not enable the Basic authentication method.
+2. It was possible to enable the CredSSP option, however the IP address of the host was still unreachable because the authentication could not be done successfully.
+
