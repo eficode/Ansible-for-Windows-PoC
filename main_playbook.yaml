@@ -5,15 +5,21 @@
   tasks:
     - name: "Check windows machine access using win_ping"
       win_ping:
+
+    - name: "Uninstall current git version"
+      win_package:
+        arguments: /SILENT
+        product_id: Git_is1
+        state: absent
       
     - name: "Download git-client"
       win_get_url:
-        url: 'https://github.com/git-for-windows/git/releases/download/v2.33.0.windows.2/Git-2.33.0.2-64-bit.exe'
-        dest: 'C:\Windows\Temp\Git-1.9.5-preview20150319.exe'
+        url: 'https://github.com/git-for-windows/git/releases/download/v2.36.0.windows.1/Git-2.36.0-64-bit.exe'
+        dest: 'C:\Windows\Temp\Git-2.36.0-64-bit.exe'
 
-    - name: "Install git-client"
+    - name: "Install downloaded version"
       win_package:
-        path: C:\Windows\Temp\Git-1.9.5-preview20150319.exe
+        path: C:\Windows\Temp\Git-2.36.0-64-bit.exe
         arguments: /SILENT
         product_id: Git_is1
         state: present
