@@ -24,7 +24,7 @@ Open the group_vars/own_windows directory and replace `ansible_user` and `ansibl
 
 ## The `main_playbook.yaml`
 
-If the setup was successful the playbook will authenticate into the host, download and install Git in the windows machine.
+Run `ansible-playbook main_playbook.yaml`. If the setup was successful the playbook will authenticate into the host, download and install Git in the windows machine.
 
 ## PoC Considerations
 
